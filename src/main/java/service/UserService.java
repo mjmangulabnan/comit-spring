@@ -1,21 +1,63 @@
 package service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
 import bean.User;
-
-import java.util.ArrayList;
-import java.util.List;
+import dao.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
 
-    private List<User> users = new ArrayList<>();
+	@Autowired
+	UserDao userDao;
+	
+	
+	public List<User> listUsers() {
+		
+		List<User> users = this.userDao.listUsers();
+		
+		users.forEach(System.out::println);
+		/*
+		 * Apply some business logic to the users list
+		 */
+		
+		return users;
+	}
+	
+	public void createUser(User user){
+		
+		this.validateUser(user);
+		
+		this.userDao.createUser(user);
+	}
 
-    // Method to create a new user
-    public void createUser(User user) {
-        users.add(user); // Add the user to the list of users
-    }
+	public void updateUser(User user){
+		
+		this.validateUser(user);
+		
+		this.userDao.updateUser(user);
+	}
 
-    // Other methods for user-related operations can be added here as needed
+	public User findUser(User user){
+		
+		return this.userDao.findUser(user);
+	}
+
+	public User findUser(int userId){
+		
+		return this.userDao.findUser(userId);
+	}
+	
+	private void validateUser(User user) {
+		
+		if (user.getFirstName().isEmpty() || 
+			 user.getLastName().isEmpty() ||
+			 user.getUsername().isEmpty()) {
+			
+			throw new RuntimeException("Invalid User Data: " + user);
+		}
+			
+	}
 }

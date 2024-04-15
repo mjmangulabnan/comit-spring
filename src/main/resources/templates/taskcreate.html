@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+<title>TaskMaster</title>
+</head>
+<body>
+  <div class="container mt-5 w-75">
+
+    <div th:replace="~{fragments :: header(new)}"></div> 
+	
+	<div class="jumbotron bg-light border border-info mt-3 py-4" style="min-height: 450px">
+	  <h1>New Task</h1>
+	  <form th:action="@{/taskcreate}" th:object="${task}" method="post">
+		  <div class="form-group">
+		    <label for="taskName">Task Name:</label>
+		    <input type="text" class="form-control" th:field="*{taskName}" required>
+		  </div>
+		  <div class="form-group">
+		    <label for="taskType">Task Type:</label>
+		    <input type="text" class="form-control" th:field="*{taskType}" required>
+		  </div>
+		  
+		  <div class="form-group">
+		    <label for="clientName">Client Name:</label>
+		    <input type="text" class="form-control" th:field="*{clientName}" required>
+		  </div>
+
+		  <button type="submit" class="btn btn-primary mt-2" style="min-width: 100px">Save</button>
+	  </form>
+	</div>
+  </div>
+
+  <div th:replace="~{fragments :: scripts}"></div>
+   
+</body>
+</html>

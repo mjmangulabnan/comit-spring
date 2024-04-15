@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+<title>Task Master</title>
+</head>
+<body>
+  <div class="container mt-5 w-75">
+
+    <div th:replace="~{fragments :: header(list)}"></div> 
+	
+	<div class="table-responsive mt-3">
+		<table class="table table-striped table-hover">
+		  <thead>
+		    <tr>
+		      <th scope="col">User Id</th>
+		      <th scope="col">Name</th>
+		      <th scope="col">Username</th>
+		      <th scope="col">Email</th>
+		      <th scope="col">#</th>
+		      <th scope="col">#</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="user: ${users}">
+		      <th th:text="${user.userId}" />
+		      <td th:text="${user.firstName} + ' ' + ${user.lastName}"/>
+		      <td th:text="${#strings.toUpperCase(user.username)} "/>
+		      <th th:text="${user.email}" />
+		      <td class="text-right"><a th:href="@{/update/} + ${user.userId}" class="btn btn-warning btn-sm">Update</a></td>
+		      <td><a class="btn btn-danger btn-sm">Delete</a></td>
+		    </tr>
+		  </tbody>
+		</table>	
+	</div>
+
+  </div>
+
+  <div th:replace="~{fragments :: scripts}"></div>
+   
+</body>
+</html>

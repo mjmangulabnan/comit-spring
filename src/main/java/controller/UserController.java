@@ -1,38 +1,100 @@
 package controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import bean.User;
 import service.UserService;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+	Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+	@Autowired
+	UserService userService;
+	
+	@GetMapping("/")
+	String index() {
+		
+		return "index";
+	}
+	
+	@GetMapping("/list")
+	ModelAndView listUsers() {
+		
+		List<User> users = this.userService.listUsers();
+		
+		return new ModelAndView("list","users",users);
+	}
 
-    // Mapping for displaying the user creation form
-    @GetMapping("/createUser")
-    public String showCreateUserForm(Model model) {
-        model.addAttribute("user", new User()); // Add an empty user object to the model
-        return "createUser"; // Return the view name for the user creation form
-    }
+	@GetMapping("/create")
+	String showCreate(User user) {
+		
+		return "create";
+	}
 
-    // Mapping for processing the user creation form submission
-    @PostMapping("/createUser")
-    public String createUser(User user, RedirectAttributes redirectAttributes) {
-        // Call the userService to save the user
-        userService.createUser(user);
+	@PostMapping("/create")
+	String createUser(User user, BindingResult binding) {
+		
+		this.logger.debug("Creating User, {}", user.toString());
+		
+		this.validateUsername(user, binding);
+		
+		if (binding.hasErrors()) {
+			return "create";
+		}
+		
+		this.userService.createUser(user);
+		
+		return "redirect:/list";
+	}
 
-        // Add a success message to the redirect attributes
-        redirectAttributes.addFlashAttribute("successMessage", "User created successfully!");
+	@PostMapping("/update")
+	String updateUser(User user, BindingResult binding) {
+		
+		this.logger.debug("Updating User, {}", user.toString());
+		
+		this.validateUsername(user, binding);
+		
+		if (binding.hasErrors()) {
+			return "update";
+		}
+		
+		this.userService.updateUser(user);
+		
+		return "redirect:/list";
+	}
+	
+	@GetMapping("/update/{userId}")
+	ModelAndView showUpdate(@PathVariable int userId) {
+		
+		User user = userService.findUser(userId);
+		
+		return new ModelAndView("update","user",user);
+	}
 
-        // Redirect to a success page or another URL
-        return "redirect:/success"; // Redirect to a success page
-    }
+	private void validateUsername(User user, BindingResult binding) {
+		
+		/*
+		if (this.userService.findUser(user) != null) {
+			binding.addError(new FieldError("user","username",user.getUsername(), 
+					 false, null, null, "* Username already taken."));
+		}*/
+
+		if (Optional.ofNullable(this.userService.findUser(user)).isPresent()) {
+			binding.addError(new FieldError("user","username",user.getUsername(), 
+					false, null, null, "* Username already taken."));
+		}
+	}
 }
