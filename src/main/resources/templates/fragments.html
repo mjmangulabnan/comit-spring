@@ -1,3 +1,105 @@
+<!-- <!DOCTYPE html> -->
+<!-- <html xmlns:th="http://www.thymeleaf.org"> -->
+<!-- <head> -->
+<!--   <meta charset="UTF-8"> -->
+  
+<!-- </head> -->
+<!-- <body> -->
+<!--   <div th:fragment="header(option)"> -->
+<!--     <img th:src="@{/img/tskmstr logo xs.png}"/> -->
+<!--     <nav class="navbar navbar-expand-lg navbar-light mt-3" style="background-color:#b6fad1"> -->
+<!-- 	  <a class="navbar-brand" href="#">TaskMaster</a> -->
+<!-- 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> -->
+<!-- 	    <span class="navbar-toggler-icon"></span> -->
+<!-- 	  </button> -->
+	
+<!-- 	  <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+<!-- 	    <ul class="navbar-nav mr-auto"> -->
+<!-- 	      <li class="nav-item" th:classappend="${option=='home' ? 'active' : ''}"> -->
+<!-- 	        <a class="nav-link" th:href="@{/}">Home</a> -->
+<!-- 	      </li> -->
+	      
+<!-- <!-- 	      <li class="nav-item" th:classappend="${option=='list' ? 'active' : ''}"> --> -->
+<!-- <!-- 	        <a class="nav-link" th:href="@{/list}">Users List</a> --> -->
+<!-- <!-- 	      </li> --> -->
+<!-- <!-- 	      <li class="nav-item" th:classappend="${option=='new' ? 'active' : ''}"> --> -->
+<!-- <!-- 	        <a class="nav-link" th:href="@{/create}">New User</a> --> -->
+<!-- <!-- 	      </li> --> -->
+	      
+<!-- 	      <li class="nav-item dropdown" th:classappend="${option=='list' ? 'active' : ''}"> -->
+<!-- 		  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+<!-- 		        Users -->
+<!-- 		  </a> -->
+<!-- 		  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" > -->
+<!-- 	      <li><a class="dropdown-item" th:href="@{/create}">New User</a></li> -->
+<!-- 	      <li><a class="dropdown-item" th:href="@{/list}">User List</a></li> -->
+<!-- 		  </ul> -->
+<!-- 		  </li> -->
+	      
+<!-- <!-- 	      <li class="nav-item" th:classappend="${option=='tasklist' ? 'active' : ''}"> --> -->
+<!-- <!-- 	        <a class="nav-link" th:href="@{/tasklist}">Tasks List</a> --> -->
+<!-- <!-- 	      </li> --> -->
+<!-- <!-- 	      <li class="nav-item" th:classappend="${option=='tasknew' ? 'active' : ''}"> --> -->
+<!-- <!-- 	        <a class="nav-link" th:href="@{/taskcreate}">New Task</a> --> -->
+<!-- <!-- 	      </li> --> -->
+	      
+<!-- 	      	<li class="nav-item dropdown" th:classappend="${option=='new' ? 'active' : ''}"> -->
+<!-- 		    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+<!-- 		        Tasks -->
+<!-- 		    </a> -->
+<!-- 		    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" > -->
+<!-- 	        <li><a class="dropdown-item" th:href="@{/taskcreate}">New Task</a></li> -->
+<!-- 	        <li><a class="dropdown-item" th:href="@{/tasklist}">Task List</a></li> -->
+<!-- 		    </ul> -->
+<!-- 			</li> -->
+	      
+<!-- <!-- 	      <li class="nav-item" th:classappend="${option=='activitynew' ? 'active' : ''}"> --> -->
+<!-- <!-- 	        <a class="nav-link" th:href="@{/activitycreate}">Record Activity</a> --> -->
+<!-- <!-- 	      </li> --> -->
+	      
+<!-- <!-- 	      <li class="nav-item" th:classappend="${option=='activitylist' ? 'active' : ''}"> --> -->
+<!-- <!-- 	        <a class="nav-link" th:href="@{/activitylist}">Activity List</a> --> -->
+<!-- <!-- 	      </li> --> -->
+      
+
+<!-- 	    <li class="nav-item dropdown" th:classappend="${option=='activity' ? 'active' : ''}"> -->
+<!-- 	    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+<!-- 	        MyActivity -->
+<!-- 	    </a> -->
+<!-- 	    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" > -->
+<!--         <li><a class="dropdown-item" th:href="@{/activitycreate}">Record Activity</a></li> -->
+<!--         <li><a class="dropdown-item" th:href="@{/activitylist}">View Activity List</a></li> -->
+<!-- 	    </ul> -->
+<!-- 		</li> -->
+
+<!-- 		<li class="nav-item" th:classappend="${option=='report' ? 'active' : ''}"> -->
+<!-- 	    <a class="nav-link" th:href="@{/reportweek}">Reports</a> -->
+<!-- 	    </li> -->
+	    
+	    
+<!-- 	    </ul> -->
+	    
+<!-- 	    Welcome message -->
+<!-- 	    <span class="navbar-text"> -->
+<!-- 	        Welcome, <strong th:text="${username}">User</strong> Display username here -->
+<!-- 	    </span> -->
+	    
+	    
+<!-- 	    <ul class="navbar-nav ml-auto"> -->
+<!-- 	      <li class="nav-item"> -->
+<!-- 	        <a class="nav-link" th:href="@{/logout}">Logout</a> -->
+<!-- 	      </li> -->
+<!-- 	    </ul> -->
+<!-- 	  </div> -->
+<!-- 	</nav> -->
+<!--   </div> -->
+<!--   <div th:fragment="scripts"> -->
+<!--     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+<!--     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script> -->
+<!--   </div> -->
+<!-- </body> -->
+<!-- </html> -->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -6,7 +108,7 @@
 <body>
   <div th:fragment="header(option)">
     <img th:src="@{/img/tskmstr logo xs.png}"/>
-    <nav class="navbar navbar-expand-lg navbar-light mt-3" style="background-color: #e1ecef">
+    <nav class="navbar navbar-expand-lg navbar-light mt-3" style="background-color:#b6fad1">
 	  <a class="navbar-brand" href="#">TaskMaster</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
@@ -17,39 +119,51 @@
 	      <li class="nav-item" th:classappend="${option=='home' ? 'active' : ''}">
 	        <a class="nav-link" th:href="@{/}">Home</a>
 	      </li>
-	      <li class="nav-item" th:classappend="${option=='list' ? 'active' : ''}">
-	        <a class="nav-link" th:href="@{/list}">Users List</a>
-	      </li>
-	      <li class="nav-item" th:classappend="${option=='new' ? 'active' : ''}">
-	        <a class="nav-link" th:href="@{/create}">New User</a>
-	      </li>
-	      <li class="nav-item" th:classappend="${option=='tasklist' ? 'active' : ''}">
-	        <a class="nav-link" th:href="@{/tasklist}">Tasks List</a>
-	      </li>
-	      <li class="nav-item" th:classappend="${option=='tasknew' ? 'active' : ''}">
-	        <a class="nav-link" th:href="@{/taskcreate}">New Task</a>
-	      </li>
-	    
-<!-- 	    <li class="nav-item dropdown" th:classappend="${option=='task' ? 'active' : ''}"> -->
-<!-- 	    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-<!-- 	        Tasks -->
-<!-- 	    </a> -->
-<!-- 	    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> -->
-<!--         <li ><a class="dropdown-item" th:href="@{/tasklist}">Tasks List</a></li> -->
-<!--         <li><a class="dropdown-item" href="#">New Task</a></li> -->
-<!--         <li><a class="dropdown-item" href="#">Update Task</a></li> -->
-<!--         <li><a class="dropdown-item" href="#">Delete Task</a></li> -->
-<!-- 	    </ul> -->
-<!-- 		</li> -->
+	      
+	      <li class="nav-item dropdown" th:classappend="${option=='users' ? 'active' : ''}">
+			  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			        Users
+			  </a>
+			  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
+		      <li><a class="dropdown-item" th:href="@{/create}">New User</a></li>
+		      <li><a class="dropdown-item" th:href="@{/list}">User List</a></li>
+			  </ul>
+		  </li>
+	      
+	      <li class="nav-item dropdown" th:classappend="${option=='tasks' ? 'active' : ''}">
+		      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Tasks
+		      </a>
+		      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
+		        <li><a class="dropdown-item" th:href="@{/taskcreate}">New Task</a></li>
+		        <li><a class="dropdown-item" th:href="@{/tasklist}">Task List</a></li>
+		      </ul>
+		  </li>
+	      
+	      <li class="nav-item dropdown" th:classappend="${option=='activity' ? 'active' : ''}">
+		      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          MyActivity
+		      </a>
+		      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
+		        <li><a class="dropdown-item" th:href="@{/activitycreate}">Record Activity</a></li>
+		        <li><a class="dropdown-item" th:href="@{/activitylist}">View Activity List</a></li>
+		      </ul>
+		  </li>
+
+		  <li class="nav-item" th:classappend="${option=='report' ? 'active' : ''}">
+		    <a class="nav-link" th:href="@{/reportweek}">Reports</a>
+		  </li>
 	    
 	    </ul>
 	    
-	    
-	    
+	    <!-- Welcome message -->
+	    <span class="navbar-text">
+	        Welcome, <strong th:text="${username}">User</strong> <!-- Display username here -->
+	    </span>
 	    
 	    <ul class="navbar-nav ml-auto">
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Logout</a>
+	        <a class="nav-link" th:href="@{/logout}">Logout</a>
 	      </li>
 	    </ul>
 	  </div>

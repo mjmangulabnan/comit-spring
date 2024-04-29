@@ -19,6 +19,7 @@
 		      <th scope="col">Name</th>
 		      <th scope="col">Username</th>
 		      <th scope="col">Email</th>
+		      <th scope="col">Role</th>
 		      <th scope="col">#</th>
 		      <th scope="col">#</th>
 		    </tr>
@@ -29,6 +30,7 @@
 		      <td th:text="${user.firstName} + ' ' + ${user.lastName}"/>
 		      <td th:text="${#strings.toUpperCase(user.username)} "/>
 		      <th th:text="${user.email}" />
+		      <th th:text="${user.role}" />
 		      <td class="text-right"><a th:href="@{/update/} + ${user.userId}" class="btn btn-warning btn-sm">Update</a></td>
 		      <td><a class="btn btn-danger btn-sm">Delete</a></td>
 		    </tr>

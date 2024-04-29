@@ -17,6 +17,7 @@
 		    <tr>
 		      <th scope="col">Task No.</th>
 		      <th scope="col">Task Name</th>
+		      <th scope="col">Task Description</th>
 		      <th scope="col">Task Type</th>
 		      <th scope="col">Client</th>
 		      <th scope="col">#</th>
@@ -27,6 +28,7 @@
 		    <tr th:each="task: ${tasks}">
 		      <th th:text="${task.taskId}" />
 		      <td th:text="${task.taskName}"/>
+		      <td th:text="${task.taskDescription}"/>
 		      <td th:text="${task.taskType}"/>
 		      <td th:text="${task.clientName}"/>
 		      <td class="text-right"><a th:href="@{/taskupdate/} + ${task.taskId}" class="btn btn-warning btn-sm">Update</a></td>

@@ -13,6 +13,7 @@ public class User {
 	String lastName;
 	String email;
 	String status;
+	String role;
 	
 	public int getUserId() {
 		return userId;
@@ -50,6 +51,12 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	public String getStatus() {
 		return status;
 	}
@@ -57,11 +64,12 @@ public class User {
 		this.status = status;
 	}
 	
+	
 	@Override
 	public String toString() {
 		return String.format(
-				"User [userId=%s, username=%s, password=%s, firstName=%s, lastName=%s, email=%s, status=%s]", userId,
-				username, password, firstName, lastName, email, status);
+				"User [userId=%s, username=%s, password=%s, firstName=%s, lastName=%s, email=%s, role=%s, status=%s]", userId,
+				username, password, firstName, lastName, email, role, status);
 	}
 	
 }
